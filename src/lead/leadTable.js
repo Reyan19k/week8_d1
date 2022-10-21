@@ -1,17 +1,16 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require("../db/connection");
 
-const Movie = sequelize.define("Movie", {
-    title: {
+const Lead = sequelize.define("Lead", {
+    director: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
-    actor: {
+    movieId: {
         type: DataTypes.STRING,
         defaultValue: "Not Specified"
     }
 })
 
-module.exports = Movie
-
+module.exports = Lead

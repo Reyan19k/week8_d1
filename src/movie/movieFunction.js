@@ -7,7 +7,6 @@ exports.createMovie = async (movieObject) => {
         console.log(error)
     }
 }
-
 exports.readMovies = async (filterObj) => {
     try {
         if (filterObj) {

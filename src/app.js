@@ -59,6 +59,8 @@ const app = async (yargsObject) => {
                 output.actor = movie.actor
                 console.log(output)
             }
+        } else if (yargsObject.lead) {
+
         } else {
             console.log("Incorrect Command")
         }
