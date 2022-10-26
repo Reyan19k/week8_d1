@@ -4,12 +4,13 @@ const { sequelize } = require("../db/connection");
 const Lead = sequelize.define("Lead", {
     director: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-    },
-    movieId: {
-        type: DataTypes.STRING,
         defaultValue: "Not Specified"
+    },
+    movieName: {
+        type: DataTypes.STRING,
+        defaultValue: "Not Specified",
+        unique: true,
+        allowNull: false
     }
 })
 

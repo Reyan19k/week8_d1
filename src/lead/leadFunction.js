@@ -1,18 +1,20 @@
 const Lead = require("./leadTable")
+const sequelize  = require("../db/connection");
 
 exports.createLead = async (leadObject) => {
     try {
+        await Lead.sync()
         await Lead.create(leadObject)
     } catch (error) {
         console.log(error)
     }
 }
-exports.readLead = async (filterObj) => {
+exports.listAllLeads = async () => {
     try {
-        if (filterObj) {
-            return await Lead.findOne({ where: filterObj })
-        } else {
-            return await Lead.findAll()
+        const leadList = await Lead.findAll()
+        // console.log(leadList[0].Lead.dataValues.director, leadList[0].Lead.dataValues.movieName )
+        for (let index = 0; index < leadList.length; index++){
+            console.log(leadList[index].dataValues.director, leadList[index].dataValues.movieName)
         }
     } catch (error) {
         console.log(error)
